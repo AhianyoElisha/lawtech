@@ -14,7 +14,7 @@ LawTech is a mobile application designed to bridge the gap between legal profess
 - **Booking Platform**: A seamless interface for clients to book consultations with lawyers.
 - **Q&A Forum**: A StackOverflow-like platform where lawyers can answer questions posed by clients.
 
-LegalEase is more than just an app; it's a community. It's a place where lawyers can share their knowledge, where anyone can learn about legal topics, and where legal services are just a few taps away.
+LawTech is more than just an app; it's a community. It's a place where lawyers can share their knowledge, where anyone can learn about legal topics, and where legal services are just a few taps away.
 
 Join us in making legal knowledge and services more accessible and engaging. Contribute to LawTech!
 
