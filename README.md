@@ -2,9 +2,9 @@
 
 ---
 
-# LegalEase: Your Comprehensive Legal Platform 🏛️
+# LawTech: Your Comprehensive Legal Platform 🏛️
 
-LegalEase is a mobile application designed to bridge the gap between legal professionals and those seeking legal knowledge or services. With a wide array of features, LegalEase aims to make legal information and services more accessible and engaging.
+LawTech is a mobile application designed to bridge the gap between legal professionals and those seeking legal knowledge or services. With a wide array of features, LegalEase aims to make legal information and services more accessible and engaging.
 
 ## Features 📱
 
@@ -16,6 +16,6 @@ LegalEase is a mobile application designed to bridge the gap between legal profe
 
 LegalEase is more than just an app; it's a community. It's a place where lawyers can share their knowledge, where anyone can learn about legal topics, and where legal services are just a few taps away.
 
-Join us in making legal knowledge and services more accessible and engaging. Contribute to LegalEase!
+Join us in making legal knowledge and services more accessible and engaging. Contribute to LawTech!
 
 ---
