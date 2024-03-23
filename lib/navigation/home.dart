@@ -13,10 +13,10 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   var images = {
-    "balloning.png" : "Balloning",
-    "hiking.png" : "Hiking",
-    "kayaking.png" : "Kayaking",
-    "snorkling.png" : "Snorking"
+    "balloning.png" : "Criminal",
+    "hiking.png" : "Civil Rights",
+    "kayaking.png" : "Family",
+    "snorkling.png" : "Real Estate"
   };
   @override
   Widget build(BuildContext context) {
@@ -60,10 +60,10 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             controller: _tabController,
             tabAlignment: TabAlignment.start,
             tabs: [
-              Tab(text: "Places",),
-              Tab(text: "Inspiration",),
-              Tab(text: "Emotions",),
-              Tab(text: "Necessary",),
+              Tab(text: "All",),
+              Tab(text: "Favourites",),
+              Tab(text: "Comments",),
+              Tab(text: "Replies",),
             ],
           ),
           const SizedBox(height: 5),
@@ -104,7 +104,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                AppTextLarge(text: "Explore", size: 22,),
+                AppTextLarge(text: "Explore the library", size: 22,),
                 AppText(text: "See all", color: AppColors.textColor1,)
               ],
             ),

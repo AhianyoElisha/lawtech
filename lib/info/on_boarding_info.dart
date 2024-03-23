@@ -2,16 +2,16 @@ import 'dart:ui';
 
 class OnBoardingInfo {
   static final List images = [
-    "welcome-one.png",
-    "welcome-two.png",
-    "welcome-three.png",
-    "welcome-one.png",
-    "welcome-two.png",
-    "welcome-three.png",
+    "onboarding_screen1.jpg",
+    "onboarding_screen2.jpg",
+    "onboarding_screen3.jpg",
+    "onboarding_screen1.jpg",
+    "onboarding_screen2.jpg",
+    "onboarding_screen3.jpg",
   ];
 
   static final List headers = [
-    "Welcome to LegalEase!",
+    "Welcome to the Lawyer's hub!",
     "Learn from the Best",
     "Connect with Professionals",
     "Expand Your Legal Library",

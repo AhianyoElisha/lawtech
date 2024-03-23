@@ -18,8 +18,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch:  Colors.blue,
         useMaterial3: true,
+        fontFamily: 'OneUI6'
       ),
-      home: MainPage(),
+      home: OnboardingScreen(),
     );
   }
 }

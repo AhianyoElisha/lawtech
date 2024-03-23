@@ -42,12 +42,12 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       children: [
                         Container(
                           width: 260,
-                          child: AppTextLarge(text: OnBoardingInfo.headers[index]),
+                          child: AppTextLarge(text: OnBoardingInfo.headers[index], size: 36),
                         ),
                         const SizedBox(height: 10,),
                         Container(
                             width: 260,
-                            child: AppText(text: OnBoardingInfo.subHeaders[index], size: 24,),
+                            child: AppText(text: OnBoardingInfo.subHeaders[index], size: 24, weight: FontWeight.w600),
                         ),
                         const SizedBox(height: 20,),
                         Container(
@@ -67,7 +67,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                         return Container(
                           margin: const EdgeInsets.only(bottom: 4),
                           width: 8,
-                          height: index == indexDots? 30: 8,
+                          height: index == indexDots? 40: 8,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(8),
                             color: index == indexDots? AppColors.mainColor: AppColors.mainColor.withOpacity(0.3),

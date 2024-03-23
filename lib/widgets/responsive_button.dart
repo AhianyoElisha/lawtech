@@ -18,7 +18,7 @@ class ResponsiveButton extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Image.asset("img/button-one.png")
+          Image.asset("img/button-one.png", width: 50, height: 15)
         ],
       ),
     );
