@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:lawtech/navigation/home.dart';
-import 'package:lawtech/navigation/library.dart';
-import 'package:lawtech/navigation/q&a_forum.dart';
-import 'package:lawtech/navigation/search_lawyer.dart';
-import 'package:lawtech/navigation/videos.dart';
+import 'package:lawtech/navigation/home/home.dart';
+import 'package:lawtech/navigation/library/library.dart';
+import 'package:lawtech/navigation/qa/q&a_forum.dart';
+import 'package:lawtech/navigation/lawyers/search_lawyer.dart';
+import 'package:lawtech/navigation/videos/videos.dart';
 import 'package:lawtech/widgets/svg_icon.dart';
 
 class MainPage extends StatefulWidget {
-  MainPage({super.key});
+  const MainPage({super.key});
 
   @override
   State<MainPage> createState() => _MainPageState();
@@ -17,11 +16,11 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
   int _currentIndex = 0;
   List pages = [
-    HomePage(),
-    LibraryPage(),
-    ScrollVideosPage(),
-    SearchLawyerPage(),
-    QAForumPage(),
+    const HomePage(),
+    const LibraryPage(),
+    const ScrollVideosPage(),
+    const SearchLawyerPage(),
+    const QAForumPage(),
   ];
 
   @override

@@ -8,4 +8,13 @@ class AppColors {
   static final Color starColor= Color(0xFFe7bb4e);
   static final Color mainTextColor= Color(0xFF575757);
   static final Color buttonBackground= Color(0xFFf1f1f1);
+
+  static List<Color> get libraryBGColor => const [
+    Color(0xffB7143C),
+    Color(0xffE6A500),
+    Color(0xffEF4C45),
+    Color(0xffF46217),
+    Color(0xff09ADE2),
+    Color(0xffD36A43),
+  ];
 }
