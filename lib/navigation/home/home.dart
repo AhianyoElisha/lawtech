@@ -91,33 +91,36 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                           scrollDirection: Axis.horizontal,
                           itemCount: info.length,
                           itemBuilder: (BuildContext context, int index) {
-                            return Container(
-                              margin: const EdgeInsets.only(right: 15, top: 10),
-                              width: 200,
-                              height: 300,
-                              child: CachedNetworkImage(
-                                imageUrl: info[index].assets.thumbnail,
-                                imageBuilder: (context, imageProvider) => Container(
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(20),
-                                    color: Colors.white,
-                                    image: DecorationImage(
-                                      image: imageProvider,
-                                      fit: BoxFit.cover,
-                                    ),
-                                  ),
-                                ),
-                                placeholder: (context, url) => Shimmer.fromColors(
-                                  baseColor: Colors.grey[300]!,
-                                  highlightColor: Colors.grey[100]!,
-                                  child: Container(
+                            return GestureDetector(
+                              onTap: () => BlocProvider.of<AppCubits>(context).selectedVideo(info[index]),
+                              child: Container(
+                                margin: const EdgeInsets.only(right: 15, top: 10),
+                                width: 200,
+                                height: 300,
+                                child: CachedNetworkImage(
+                                  imageUrl: info[index].assets.thumbnail,
+                                  imageBuilder: (context, imageProvider) => Container(
                                     decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(20),
                                       color: Colors.white,
+                                      image: DecorationImage(
+                                        image: imageProvider,
+                                        fit: BoxFit.cover,
+                                      ),
                                     ),
                                   ),
+                                  placeholder: (context, url) => Shimmer.fromColors(
+                                    baseColor: Colors.grey[300]!,
+                                    highlightColor: Colors.grey[100]!,
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(20),
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                  ),
+                                  errorWidget: (context, url, error) => const Icon(Icons.error),
                                 ),
-                                errorWidget: (context, url, error) => const Icon(Icons.error),
                               ),
                             );
                           },
@@ -149,10 +152,13 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                         scrollDirection: Axis.horizontal,
                         itemBuilder: (_, index ) {
                           var sObj = books[index];
-                          return Container(
-                            height: 240,
-                            margin: const EdgeInsets.only(right: 15),
-                            child: LibraryCell(sObj: sObj, index: index),
+                          return GestureDetector(
+                            onTap: () => BlocProvider.of<AppCubits>(context).selectedBook(books[index]),
+                            child: Container(
+                              height: 240,
+                              margin: const EdgeInsets.only(right: 15),
+                              child: LibraryCell(sObj: sObj, index: index),
+                            ),
                           );
                         }),
                   )

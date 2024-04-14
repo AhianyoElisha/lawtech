@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lawtech/cubit/app_cubits.dart';
 import 'package:lawtech/cubit/app_cubits_states.dart';
+import 'package:lawtech/navigation/home/home.dart';
+import 'package:lawtech/navigation/library/bookDetails.dart';
 import 'package:lawtech/navigation/main_page.dart';
 import 'package:lawtech/pages/onboarding_screen.dart';
 
@@ -18,6 +20,12 @@ class _AppCubitLogicsState extends State<AppCubitLogics> {
     return Scaffold(
       body: BlocBuilder<AppCubits, CubitStates>(
         builder: (context, state) {
+          if(state is SelectedBookState) {
+            return BookDetailsPage();
+          }
+          if(state is SelectedVideoState) {
+            return MainPage();
+          }
           if(state is WelcomeState) {
             return OnboardingScreen();
           }

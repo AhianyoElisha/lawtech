@@ -34,3 +34,23 @@ class LoadedState extends CubitStates {
 
 }
 
+class SelectedVideoState extends CubitStates {
+  SelectedVideoState(this.singleVideo, this.videos);
+  final VideoData singleVideo;
+  final List<VideoData> videos;
+
+  @override
+  List<Object?> get props => [singleVideo, videos];
+}
+
+class SelectedBookState extends CubitStates {
+  SelectedBookState(this.singleBook, this.books);
+  final Books singleBook;
+  final List<Books> books;
+
+  @override
+  // TODO: implement props
+  List<Object?> get props => [singleBook, books];
+
+}
+

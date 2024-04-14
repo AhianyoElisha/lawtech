@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:lawtech/cubit/app_cubits.dart';
+import 'package:lawtech/cubit/app_cubits_states.dart';
 import 'package:lawtech/navigation/home/home.dart';
 import 'package:lawtech/navigation/library/library.dart';
 import 'package:lawtech/navigation/qa/q&a_forum.dart';
@@ -25,28 +28,45 @@ class _MainPageState extends State<MainPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      body: pages[_currentIndex],
-      bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Colors.white,
-        type: BottomNavigationBarType.fixed,
-        currentIndex: _currentIndex,
-        onTap: (index) {
+    return BlocListener<AppCubits, CubitStates>(
+      listener: (context, state) {
+        if(state is SelectedVideoState) {
           setState(() {
-            _currentIndex = index;
+            _currentIndex = 2;
           });
-        },
-        elevation: 0,
-        showSelectedLabels: false,
-        showUnselectedLabels: false,
-        items: [
-          BottomNavigationBarItem(icon: MySvgIcon(assetName: "icons/apps.svg", assetNameSelected: "icons/apps-dark.svg", isSelected: _currentIndex == 0,), label: "Home"),
-          BottomNavigationBarItem(icon: MySvgIcon(assetName: "icons/diary-bookmark-down(2).svg", assetNameSelected: "icons/diary-bookmark-down-dark.svg", isSelected: _currentIndex == 1,), label: "Library"),
-          BottomNavigationBarItem(icon: MySvgIcon(assetName: "icons/film.svg", assetNameSelected: "icons/film-dark.svg", isSelected: _currentIndex == 2,), label: "Videos"),
-          BottomNavigationBarItem(icon: MySvgIcon(assetName: "icons/gavel.svg", assetNameSelected: "icons/auction.svg", isSelected: _currentIndex == 3,), label: "Lawyers"),
-          BottomNavigationBarItem(icon: MySvgIcon(assetName: "icons/comments-question.svg", assetNameSelected: "icons/comments-question-dark.svg", isSelected: _currentIndex == 4,), label: "Q&A"),
-        ],
+        }
+      },
+      child: Scaffold(
+        backgroundColor: Colors.white,
+        body: pages[_currentIndex],
+        bottomNavigationBar: BottomNavigationBar(
+          backgroundColor: Colors.white,
+          type: BottomNavigationBarType.fixed,
+          currentIndex: _currentIndex,
+          onTap: (index) {
+            setState(() {
+              _currentIndex = index;
+            });
+           if (BlocProvider.of<AppCubits>(context).state is SelectedVideoState && _currentIndex == 0) {
+             BlocProvider.of<AppCubits>(context).goHome();
+           }
+          },
+          elevation: 0,
+          showSelectedLabels: false,
+          showUnselectedLabels: false,
+          items: [
+            BottomNavigationBarItem(icon:
+            MySvgIcon(
+              assetName: "icons/apps.svg",
+              assetNameSelected: "icons/apps-dark.svg",
+              isSelected: _currentIndex == 0,
+            ), label: "Home"),
+            BottomNavigationBarItem(icon: MySvgIcon(assetName: "icons/diary-bookmark-down(2).svg", assetNameSelected: "icons/diary-bookmark-down-dark.svg", isSelected: _currentIndex == 1,), label: "Library"),
+            BottomNavigationBarItem(icon: MySvgIcon(assetName: "icons/film.svg", assetNameSelected: "icons/film-dark.svg", isSelected: _currentIndex == 2,), label: "Videos"),
+            BottomNavigationBarItem(icon: MySvgIcon(assetName: "icons/gavel.svg", assetNameSelected: "icons/auction.svg", isSelected: _currentIndex == 3,), label: "Lawyers"),
+            BottomNavigationBarItem(icon: MySvgIcon(assetName: "icons/comments-question.svg", assetNameSelected: "icons/comments-question-dark.svg", isSelected: _currentIndex == 4,), label: "Q&A"),
+          ],
+        ),
       ),
     );
   }

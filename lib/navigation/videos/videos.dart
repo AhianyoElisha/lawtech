@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lawtech/cubit/app_cubits.dart';
 import 'package:lawtech/cubit/app_cubits_states.dart';
+import 'package:lawtech/models/data_model.dart';
 import 'package:lawtech/widgets/video_player_item.dart';
 
 import '../../widgets/circle_animation.dart';
@@ -71,20 +72,30 @@ class ScrollVideosPage extends StatelessWidget {
     return Scaffold(
       body: BlocBuilder<AppCubits, CubitStates>(
         builder: (context, state) {
+          late final List<VideoData> videos;
+          VideoData? singleVideo;
+          if (state is SelectedVideoState)
+          {
+            singleVideo = state.singleVideo;
+            videos = List.from(state.videos);
+            videos.removeWhere((video) => video.videoId == singleVideo?.videoId );
+          }
           if (state is LoadedState) {
-            var videos = state.videos;
+            videos = state.videos;
+          }
+
             return PageView.builder(
-                itemCount: videos.length,
+                itemCount: state is SelectedVideoState? videos.length + 1 : videos.length,
                 controller: PageController(initialPage: 0, viewportFraction: 1),
                 scrollDirection: Axis.vertical,
                 itemBuilder: (context, index) {
-                  final video = state.videos[index];
+                  final video = state is SelectedVideoState ? (index == 0? singleVideo : videos[index - 1]): videos[index];
                   final size = MediaQuery
                       .of(context)
                       .size;
                   return Stack(
                     children: [
-                      VideoPlayerItem(videoUrl: video.assets.mp4,),
+                      VideoPlayerItem(videoUrl: video?.assets.mp4 ?? '',),
                       Column(
                         children: [
                           const SizedBox(
@@ -116,7 +127,7 @@ class ScrollVideosPage extends StatelessWidget {
                                           ),
                                         ),
                                         Text(
-                                          video.title,
+                                          video?.title ?? '',
                                           style: const TextStyle(
                                             fontSize: 15,
                                             color: Colors.white,
@@ -206,9 +217,6 @@ class ScrollVideosPage extends StatelessWidget {
                     ],
                   );
                 });
-          } else   {
-            return Container();
-          }
         }
       ),
     );
