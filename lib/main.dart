@@ -7,6 +7,7 @@ import 'package:lawtech/navigation/main_page.dart';
 import 'package:lawtech/pages/onboarding_screen.dart';
 import 'package:lawtech/services/data_services.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart' as dotenv;
+import 'package:lawtech/utils/app_bar_styles.dart';
 
 void main() async {
   await dotenv.dotenv.load();
@@ -20,13 +21,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Lawtech',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch:  Colors.blue,
-        useMaterial3: true,
-        fontFamily: 'OneUI6'
-      ),
+      theme: AppTheme.appThemeData,
+      // ThemeData(
+      //   primarySwatch:  Colors.blue,
+      //   useMaterial3: true,
+      //   fontFamily: 'OneUI6'
+      // ),
       home: BlocProvider<AppCubits>(
         create: (context) => AppCubits(
             data:DataServices()

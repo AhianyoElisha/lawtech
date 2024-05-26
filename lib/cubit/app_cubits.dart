@@ -26,6 +26,14 @@ class AppCubits extends Cubit<CubitStates> {
     }
   }
 
+  goToLogin() {
+    emit(LoginState());
+  }
+
+  goToSignUp() {
+    emit(SignUpState());
+  }
+
   selectedVideo( VideoData video) {
     emit(SelectedVideoState(video, videos));
   }

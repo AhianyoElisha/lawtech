@@ -64,7 +64,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                         const SizedBox(height: 40,),
                         GestureDetector(
                           onTap: () {
-                            BlocProvider.of<AppCubits>(context).getData();
+                            BlocProvider.of<AppCubits>(context).goToLogin();
                           },
                           child: Container(
                             width: 200,

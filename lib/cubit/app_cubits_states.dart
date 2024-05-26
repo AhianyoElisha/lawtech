@@ -17,6 +17,20 @@ class WelcomeState extends CubitStates {
 
 }
 
+class LoginState extends CubitStates {
+  @override
+  // TODO: implement props
+  List<Object?> get props => [];
+
+}
+
+class SignUpState extends CubitStates {
+  @override
+  // TODO: implement props
+  List<Object?> get props => [];
+
+}
+
 class LoadingState extends CubitStates {
   @override
   // TODO: implement props

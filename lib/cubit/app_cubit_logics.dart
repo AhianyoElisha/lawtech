@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lawtech/cubit/app_cubits.dart';
 import 'package:lawtech/cubit/app_cubits_states.dart';
+import 'package:lawtech/navigation/auth/login.dart';
 import 'package:lawtech/navigation/home/home.dart';
 import 'package:lawtech/navigation/library/bookDetails.dart';
 import 'package:lawtech/navigation/main_page.dart';
@@ -28,6 +29,9 @@ class _AppCubitLogicsState extends State<AppCubitLogics> {
           }
           if(state is WelcomeState) {
             return OnboardingScreen();
+          }
+          if(state is LoginState) {
+            return Login();
           }
           if(state is LoadedState) {
             return MainPage();
