@@ -4,7 +4,8 @@ import 'package:lawtech/misc/colors.dart';
 class ResponsiveButton extends StatelessWidget {
   bool? isResponsive;
   double? width;
-  ResponsiveButton({Key? key, this.isResponsive=false, this.width}): super(key: key);
+  ResponsiveButton({Key? key, this.isResponsive = false, this.width})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -12,14 +13,10 @@ class ResponsiveButton extends StatelessWidget {
       width: width,
       height: 60,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
-        color: AppColors.mainColor
-      ),
+          borderRadius: BorderRadius.circular(10), color: AppColors.mainColor),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Image.asset("img/button-one.png", width: 50, height: 15)
-        ],
+        children: [Image.asset("img/button-one.png", width: 50, height: 15)],
       ),
     );
   }
