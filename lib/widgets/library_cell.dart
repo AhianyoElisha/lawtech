@@ -2,7 +2,8 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:lawtech/misc/colors.dart';
 import 'package:lawtech/models/data_model.dart';
-import 'package:marquee/marquee.dart';
+import 'package:lawtech/widgets/crawl_text.dart';
+
 import 'package:shimmer/shimmer.dart';
 
 
@@ -26,24 +27,7 @@ class LibraryCell extends StatelessWidget {
           Container(
             width: 150,
             height: 20,
-            child: Marquee(
-              text: sObj.title.toString(),
-              style: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 17,
-                  fontWeight: FontWeight.w700
-              ),
-              scrollAxis: Axis.horizontal,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              blankSpace: 20.0,
-              velocity: 100.0,
-              pauseAfterRound: const Duration(seconds: 1),
-              startPadding: 10.0,
-              accelerationDuration: const Duration(seconds: 1),
-              accelerationCurve: Curves.linear,
-              decelerationDuration: const Duration(milliseconds: 500),
-              decelerationCurve: Curves.easeOut,
-            ),
+            child: TextCrawl(text: sObj.title, speed: 90)
           ),
           const SizedBox(
             height: 15,
