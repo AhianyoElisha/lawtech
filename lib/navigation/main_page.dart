@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:lawtech/Nani/Chat/Chat.dart';
 import 'package:lawtech/cubit/app_cubits.dart';
 import 'package:lawtech/cubit/app_cubits_states.dart';
 import 'package:lawtech/navigation/home/home.dart';
@@ -38,6 +39,22 @@ class _MainPageState extends State<MainPage> {
       },
       child: Scaffold(
         backgroundColor: Colors.white,
+          appBar: AppBar(
+
+            actions: <Widget>[
+              IconButton(
+                icon: Icon(Icons.message_outlined),
+                onPressed: () {
+                  // Add your onPressed code here!
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => ChatScreen()),
+                  );
+                },
+              ),
+            ],
+          ),
+
         body: pages[_currentIndex],
         bottomNavigationBar: BottomNavigationBar(
           backgroundColor: Colors.white,
