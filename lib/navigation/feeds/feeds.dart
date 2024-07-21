@@ -92,47 +92,47 @@ class _UserFeedsState extends State<UserFeeds> {
       backgroundColor: Colors.white,
       body: CustomScrollView(
         slivers: <Widget>[
-          SliverAppBar(
-            backgroundColor: Colors.white,
-            elevation: 0,
-            automaticallyImplyLeading: false,
-            floating: true,
-            snap: true,
-            actions: <Widget>[
-              Padding(
-                padding: const EdgeInsets.all(15.0),
-                child: GestureDetector(
-                  onTap: addServicePost,
-                  child: const Icon(
-                    Icons.add_to_photos_outlined,
-                    color: Colors.black,
-                  ),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.only(right: 16.0),
-                child:
-                    Icon(Icons.notification_add_outlined, color: Colors.black),
-              ),
-              Padding(
-                padding: EdgeInsets.only(right: 16.0),
-                child: GestureDetector(
-                  // onTap: () => Navigator.push(
-                  //     context,
-                  //     MaterialPageRoute(
-                  //         builder: (context) => MessagingPage(
-                  //               userId: widget.userId,
-                  //               receiverId: '2',
-                  //               receiverName: 'Chris_Idan',
-                  //             ))),
-                  child: const Icon(
-                    Icons.chat_bubble_outline_rounded,
-                    color: Colors.black,
-                  ),
-                ),
-              ),
-            ],
-          ),
+          // SliverAppBar(
+          //   backgroundColor: Colors.white,
+          //   elevation: 0,
+          //   automaticallyImplyLeading: false,
+          //   floating: true,
+          //   snap: true,
+          //   actions: <Widget>[
+          //     Padding(
+          //       padding: const EdgeInsets.all(15.0),
+          //       child: GestureDetector(
+          //         onTap: addServicePost,
+          //         child: const Icon(
+          //           Icons.add_to_photos_outlined,
+          //           color: Colors.black,
+          //         ),
+          //       ),
+          //     ),
+          //     Padding(
+          //       padding: EdgeInsets.only(right: 16.0),
+          //       child:
+          //           Icon(Icons.notification_add_outlined, color: Colors.black),
+          //     ),
+          //     Padding(
+          //       padding: EdgeInsets.only(right: 16.0),
+          //       child: GestureDetector(
+          //         // onTap: () => Navigator.push(
+          //         //     context,
+          //         //     MaterialPageRoute(
+          //         //         builder: (context) => MessagingPage(
+          //         //               userId: widget.userId,
+          //         //               receiverId: '2',
+          //         //               receiverName: 'Chris_Idan',
+          //         //             ))),
+          //         child: const Icon(
+          //           Icons.chat_bubble_outline_rounded,
+          //           color: Colors.black,
+          //         ),
+          //       ),
+          //     ),
+          //   ],
+          // ),
 
           // Categories
           SliverToBoxAdapter(
