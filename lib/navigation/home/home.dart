@@ -20,10 +20,10 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   var images = {
-    "balloning.png" : "Criminal",
-    "hiking.png" : "Civil Rights",
-    "kayaking.png" : "Family",
-    "snorkling.png" : "Real Estate"
+    "balloning.png": "Criminal",
+    "hiking.png": "Civil Rights",
+    "kayaking.png": "Family",
+    "snorkling.png": "Real Estate"
   };
   @override
   Widget build(BuildContext context) {
@@ -42,7 +42,11 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                     padding: const EdgeInsets.only(top: 70, left: 20),
                     child: Row(
                       children: [
-                        SvgPicture.asset("icons/bars-sort.svg", width: 24, color: Colors.black54,),
+                        SvgPicture.asset(
+                          "icons/bars-sort.svg",
+                          width: 24,
+                          color: Colors.black54,
+                        ),
                         Expanded(child: Container()),
                         Container(
                           margin: const EdgeInsets.only(right: 20),
@@ -56,12 +60,18 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                       ],
                     ),
                   ),
-                  const SizedBox(height: 20,),
+                  const SizedBox(
+                    height: 20,
+                  ),
                   Container(
                     margin: const EdgeInsets.only(left: 20),
-                    child: AppTextLarge(text: "Discover",),
+                    child: AppTextLarge(
+                      text: "Discover",
+                    ),
                   ),
-                  const SizedBox(height: 20,),
+                  const SizedBox(
+                    height: 20,
+                  ),
                   TabBar(
                     dividerColor: Colors.white,
                     labelPadding: const EdgeInsets.only(left: 20, right: 20),
@@ -69,14 +79,23 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                     unselectedLabelColor: Colors.grey,
                     isScrollable: true,
                     indicatorSize: TabBarIndicatorSize.label,
-                    indicator: CircleTabIndicator(color: AppColors.mainColor, radius: 4),
+                    indicator: CircleTabIndicator(
+                        color: AppColors.mainColor, radius: 4),
                     controller: tabController,
                     tabAlignment: TabAlignment.start,
                     tabs: const [
-                      Tab(text: "All",),
-                      Tab(text: "Favourites",),
-                      Tab(text: "Comments",),
-                      Tab(text: "Replies",),
+                      Tab(
+                        text: "All",
+                      ),
+                      Tab(
+                        text: "Favourites",
+                      ),
+                      Tab(
+                        text: "Comments",
+                      ),
+                      Tab(
+                        text: "Replies",
+                      ),
                     ],
                   ),
                   const SizedBox(height: 5),
@@ -92,14 +111,17 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                           itemCount: info.length,
                           itemBuilder: (BuildContext context, int index) {
                             return GestureDetector(
-                              onTap: () => BlocProvider.of<AppCubits>(context).selectedVideo(info[index]),
+                              onTap: () => BlocProvider.of<AppCubits>(context)
+                                  .selectedVideo(info[index]),
                               child: Container(
-                                margin: const EdgeInsets.only(right: 15, top: 10),
+                                margin:
+                                    const EdgeInsets.only(right: 15, top: 10),
                                 width: 200,
                                 height: 300,
                                 child: CachedNetworkImage(
                                   imageUrl: info[index].assets.thumbnail,
-                                  imageBuilder: (context, imageProvider) => Container(
+                                  imageBuilder: (context, imageProvider) =>
+                                      Container(
                                     decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(20),
                                       color: Colors.white,
@@ -109,7 +131,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                       ),
                                     ),
                                   ),
-                                  placeholder: (context, url) => Shimmer.fromColors(
+                                  placeholder: (context, url) =>
+                                      Shimmer.fromColors(
                                     baseColor: Colors.grey[300]!,
                                     highlightColor: Colors.grey[100]!,
                                     child: Container(
@@ -119,7 +142,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                       ),
                                     ),
                                   ),
-                                  errorWidget: (context, url, error) => const Icon(Icons.error),
+                                  errorWidget: (context, url, error) =>
+                                      const Icon(Icons.error),
                                 ),
                               ),
                             );
@@ -131,42 +155,52 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                       ],
                     ),
                   ),
-                  const SizedBox(height: 30,),
+                  const SizedBox(
+                    height: 30,
+                  ),
                   Container(
                     padding: const EdgeInsets.only(left: 20, right: 20),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        AppTextLarge(text: "Explore the library", size: 22,),
-                        AppText(text: "See all", color: AppColors.textColor1,)
+                        AppTextLarge(
+                          text: "Explore the library",
+                          size: 22,
+                        ),
+                        AppText(
+                          text: "See all",
+                          color: AppColors.textColor1,
+                        )
                       ],
                     ),
                   ),
-                  const SizedBox(height: 10,),
-                  Container(
-                    height: 240,
-                    width: double.maxFinite,
-                    margin: const EdgeInsets.only( left: 20),
-                    child: ListView.builder(
-                        itemCount: books.length,
-                        scrollDirection: Axis.horizontal,
-                        itemBuilder: (_, index ) {
-                          var sObj = books[index];
-                          return GestureDetector(
-                            onTap: () => BlocProvider.of<AppCubits>(context).selectedBook(books[index]),
-                            child: Container(
-                              height: 240,
-                              margin: const EdgeInsets.only(right: 15),
-                              child: LibraryCell(sObj: sObj, index: index),
-                            ),
-                          );
-                        }),
-                  )
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  // Container(
+                  //   height: 240,
+                  //   width: double.maxFinite,
+                  //   margin: const EdgeInsets.only(left: 20),
+                  //   child: ListView.builder(
+                  //       itemCount: 10,
+                  //       scrollDirection: Axis.horizontal,
+                  //       itemBuilder: (_, index) {
+                  //         var sObj = books[index];
+                  //         return GestureDetector(
+                  //           onTap: () => BlocProvider.of<AppCubits>(context)
+                  //               .selectedBook(books[index]),
+                  //           child: Container(
+                  //             height: 240,
+                  //             margin: const EdgeInsets.only(right: 15),
+                  //             child: LibraryCell(sObj: sObj, index: index),
+                  //           ),
+                  //         );
+                  //       }),
+                  // )
                 ],
               ),
             );
-          }
-          else {
+          } else {
             return Container();
           }
         },
@@ -174,8 +208,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
     );
   }
 }
-
-
 
 class CircleTabIndicator extends Decoration {
   final Color color;
@@ -185,7 +217,7 @@ class CircleTabIndicator extends Decoration {
   @override
   BoxPainter createBoxPainter([VoidCallback? onChanged]) {
     // TODO: implement createBoxPainter
-    return _CirclePainter( color: color, radius: radius);
+    return _CirclePainter(color: color, radius: radius);
   }
 }
 
@@ -201,9 +233,9 @@ class _CirclePainter extends BoxPainter {
     Paint _paint = Paint();
     _paint.color = color;
     _paint.isAntiAlias = true;
-    final Offset circleOffset = Offset(configuration.size!.width/2 - radius/2,
+    final Offset circleOffset = Offset(
+        configuration.size!.width / 2 - radius / 2,
         configuration.size!.height - radius);
     canvas.drawCircle(offset + circleOffset, radius, _paint);
   }
-
 }
