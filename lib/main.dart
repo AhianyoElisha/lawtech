@@ -8,6 +8,8 @@ import 'package:flutter_dotenv/flutter_dotenv.dart' as dotenv;
 import 'package:lawtech/utils/app_bar_styles.dart';
 import 'package:provider/provider.dart';
 
+import 'Nani/Services/ChatProvider.dart';
+
 void main() async {
   await dotenv.dotenv.load();
   runApp(const MyApp());
@@ -22,9 +24,11 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: ((_) => QuestionProvider())),
+        ChangeNotifierProvider(create: ((_) => ChatProvider())),
       ],
       child: MaterialApp(
         title: 'Lawtech',
+
         debugShowCheckedModeBanner: false,
         theme: AppTheme.appThemeData,
         // ThemeData(
