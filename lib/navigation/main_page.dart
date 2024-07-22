@@ -23,8 +23,8 @@ class _MainPageState extends State<MainPage> {
   List pages = [
     const HomePage(),
     const UserFeeds(userId: '1'),
-    const LibraryPage(),
     const ScrollVideosPage(),
+    const LibraryPage(),
     const SearchLawyerPage(),
   ];
 
@@ -40,22 +40,20 @@ class _MainPageState extends State<MainPage> {
       },
       child: Scaffold(
         backgroundColor: Colors.white,
-          appBar: AppBar(
-
-            actions: <Widget>[
-              IconButton(
-                icon: Icon(Icons.message_outlined),
-                onPressed: () {
-                  // Add your onPressed code here!
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => ChatScreen()),
-                  );
-                },
-              ),
-            ],
-          ),
-
+        appBar: AppBar(
+          actions: <Widget>[
+            IconButton(
+              icon: Icon(Icons.message_outlined),
+              onPressed: () {
+                // Add your onPressed code here!
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => ChatScreen()),
+                );
+              },
+            ),
+          ],
+        ),
         body: pages[_currentIndex],
         bottomNavigationBar: BottomNavigationBar(
           backgroundColor: Colors.white,
@@ -91,18 +89,18 @@ class _MainPageState extends State<MainPage> {
                 label: "Feeds"),
             BottomNavigationBarItem(
                 icon: MySvgIcon(
-                  assetName: "icons/diary-bookmark-down(2).svg",
-                  assetNameSelected: "icons/diary-bookmark-down-dark.svg",
-                  isSelected: _currentIndex == 2,
-                ),
-                label: "Library"),
-            BottomNavigationBarItem(
-                icon: MySvgIcon(
                   assetName: "icons/film.svg",
                   assetNameSelected: "icons/film-dark.svg",
-                  isSelected: _currentIndex == 3,
+                  isSelected: _currentIndex == 2,
                 ),
                 label: "Videos"),
+            BottomNavigationBarItem(
+                icon: MySvgIcon(
+                  assetName: "icons/diary-bookmark-down(2).svg",
+                  assetNameSelected: "icons/diary-bookmark-down-dark.svg",
+                  isSelected: _currentIndex == 3,
+                ),
+                label: "Library"),
             BottomNavigationBarItem(
                 icon: MySvgIcon(
                   assetName: "icons/gavel.svg",

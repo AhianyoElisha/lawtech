@@ -13,18 +13,18 @@ class DataServices {
       "Authorization": "Bearer ${dotenv.dotenv.env['API_KEY']}",
     };
 
-    http.Response res = await http.get(Uri.parse(baseUrl+apiUrl), headers: headers);
-    try{
-      if(res.statusCode == 200) {
+    http.Response res =
+        await http.get(Uri.parse(baseUrl + apiUrl), headers: headers);
+    try {
+      if (res.statusCode == 200) {
         Map<String, dynamic> map = json.decode(res.body);
         List<dynamic> list = map['data'];
         print(list[0]);
         return list.map((e) => VideoData.fromJson(e)).toList();
-      }
-      else {
+      } else {
         return <VideoData>[];
       }
-    }catch(e) {
+    } catch (e) {
       print(e);
       return <VideoData>[];
     }
@@ -35,16 +35,19 @@ class DataServices {
 
     http.Response response = await http.get(Uri.parse(apiUrl));
     try {
-      if(response.statusCode == 200) {
+      if (response.statusCode == 200) {
         Map<String, dynamic> map = json.decode(response.body);
-        List <dynamic> books = map['books'];
-        return books.map((e) => Books.fromJson(e)).toList();
-      }
-      else {
+        List<dynamic> books = map['books'];
+
+        // Limit the books list to a maximum of 10 objects
+        List<dynamic> limitedBooks =
+            books.length > 2 ? books.sublist(0, 2) : books;
+
+        return limitedBooks.map((e) => Books.fromJson(e)).toList();
+      } else {
         return <Books>[];
       }
-    }
-    catch(e) {
+    } catch (e) {
       return <Books>[];
     }
   }

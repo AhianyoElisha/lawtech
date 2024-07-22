@@ -177,26 +177,26 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   const SizedBox(
                     height: 10,
                   ),
-                  // Container(
-                  //   height: 240,
-                  //   width: double.maxFinite,
-                  //   margin: const EdgeInsets.only(left: 20),
-                  //   child: ListView.builder(
-                  //       itemCount: 10,
-                  //       scrollDirection: Axis.horizontal,
-                  //       itemBuilder: (_, index) {
-                  //         var sObj = books[index];
-                  //         return GestureDetector(
-                  //           onTap: () => BlocProvider.of<AppCubits>(context)
-                  //               .selectedBook(books[index]),
-                  //           child: Container(
-                  //             height: 240,
-                  //             margin: const EdgeInsets.only(right: 15),
-                  //             child: LibraryCell(sObj: sObj, index: index),
-                  //           ),
-                  //         );
-                  //       }),
-                  // )
+                  Container(
+                    height: 240,
+                    width: double.maxFinite,
+                    margin: const EdgeInsets.only(left: 20),
+                    child: ListView.builder(
+                        itemCount: books.length,
+                        scrollDirection: Axis.horizontal,
+                        itemBuilder: (_, index) {
+                          var sObj = books[index];
+                          return GestureDetector(
+                            onTap: () => BlocProvider.of<AppCubits>(context)
+                                .selectedBook(books[index]),
+                            child: Container(
+                              height: 240,
+                              margin: const EdgeInsets.only(right: 15),
+                              child: LibraryCell(sObj: sObj, index: index),
+                            ),
+                          );
+                        }),
+                  )
                 ],
               ),
             );
